@@ -1,11 +1,11 @@
 'use strict'
 
 
+//Import das "dependências" para este código
+// import { lerContatos, criarContato, deletarContato } from "./contatos.js"
+import { lerContatos, deletarContato, criarContato } from "../js/contatos.js"
 
-
-
-import { lerContatos, criarContato, deletarContato } from "./contatos.js"
-
+//Carregando cards dos contatos
 const carregarCards = async () => {
     const contatos = await lerContatos()
     const container = document.getElementById('container')
@@ -13,6 +13,7 @@ const carregarCards = async () => {
     container.replaceChildren(...cards)
 }
 
+//Criar card dos contatos
 const criarCards = (contato) => {
     const card = document.createElement('div')
     card.classList.add('card-contato')
@@ -75,7 +76,6 @@ const salvarContato = async () => {
     carregarCards()
 
 }
-
 
 botaoSalvar.addEventListener('click', salvarContato)
 botaoNovoContato.addEventListener('click', mostrarFormulario)
